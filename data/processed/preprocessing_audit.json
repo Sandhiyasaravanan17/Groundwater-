@@ -1,0 +1,281 @@
+{
+  "generated_at_utc": "2026-10-08T16:18:02.491060+00:00",
+  "inputs": {
+    "Melbhuvanagiri.csv": {
+      "records_read": 505,
+      "normalized_records_written": 504,
+      "quarantined_malformed_records": 1,
+      "removed_exact_duplicates": 0
+    },
+    "Kurinjipadi.csv": {
+      "records_read": 635,
+      "normalized_records_written": 634,
+      "quarantined_malformed_records": 1,
+      "removed_exact_duplicates": 0
+    }
+  },
+  "operations": [
+    "Read headerless tab-delimited source files without modifying them.",
+    "Map the inspected positional schema and normalize numeric and season fields.",
+    "Extract labeled chemistry values only when duplicate source fields agree.",
+    "Preserve every source field in raw_field_01 through raw_field_20.",
+    "Quarantine rows that do not contain exactly 20 fields.",
+    "Remove only exact duplicate source records across the combined inputs."
+  ],
+  "limitations": [
+    "The source files have no headers; field meanings are inferred from their values and order.",
+    "The meanings and units of source fields 15 through 18 are unknown and remain unlabeled.",
+    "WGS84 coordinate bounds are checked, but no independent study-area boundary is available for validation.",
+    "Existing quality and risk categories are retained as supplied; no WQI is calculated in this phase."
+  ],
+  "field_dictionary": {
+    "state": {
+      "source_field_position": 1,
+      "description": "Inferred state name from positional values; source has no header."
+    },
+    "district": {
+      "source_field_position": 2,
+      "description": "Inferred district name from positional values; source has no header."
+    },
+    "block": {
+      "source_field_position": 3,
+      "description": "Inferred block name from positional values; source has no header."
+    },
+    "village": {
+      "source_field_position": 4,
+      "description": "Inferred village/location from positional values; source has no header."
+    },
+    "latitude": {
+      "source_field_position": 5,
+      "description": "Inferred from numeric field 5; requires independent study-area verification."
+    },
+    "longitude": {
+      "source_field_position": 6,
+      "description": "Inferred from numeric field 6; requires independent study-area verification."
+    },
+    "year": {
+      "source_field_position": 7,
+      "description": "Inferred integer year from field 7."
+    },
+    "season": {
+      "source_field_position": 8,
+      "description": "Season category from field 8."
+    },
+    "source_record_index": {
+      "source_field_position": 9,
+      "description": "Integer field 9; source meaning is undocumented."
+    },
+    "well_type": {
+      "source_field_position": 10,
+      "description": "Source/well category from field 10."
+    },
+    "parameter_text_group_1_raw": {
+      "source_field_position": 11,
+      "description": "Raw parameter-list text in field 11; group meaning is undocumented."
+    },
+    "parameter_text_group_1_duplicate_raw": {
+      "source_field_position": 12,
+      "description": "Repeated parameter-list text in field 12; preserved as supplied."
+    },
+    "parameter_text_group_2_raw": {
+      "source_field_position": 13,
+      "description": "Raw parameter-list text in field 13; group meaning is undocumented."
+    },
+    "parameter_text_group_2_duplicate_raw": {
+      "source_field_position": 14,
+      "description": "Repeated parameter-list text in field 14; preserved as supplied."
+    },
+    "source_numeric_15": {
+      "source_field_position": 15,
+      "description": "Numeric field 15; meaning and unit are not provided."
+    },
+    "source_numeric_16": {
+      "source_field_position": 16,
+      "description": "Numeric field 16; meaning and unit are not provided."
+    },
+    "source_numeric_17": {
+      "source_field_position": 17,
+      "description": "Numeric field 17; meaning and unit are not provided."
+    },
+    "source_numeric_18": {
+      "source_field_position": 18,
+      "description": "Numeric field 18; meaning and unit are not provided."
+    },
+    "quality_class_source": {
+      "source_field_position": 19,
+      "description": "Existing text category in field 19; not a numeric WQI."
+    },
+    "risk_class_source": {
+      "source_field_position": 20,
+      "description": "Existing text category in field 20; method is undocumented."
+    },
+    "nitrate_mg_l": {
+      "source_field_positions": [
+        11,
+        12
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "mg/L"
+    },
+    "fluoride_mg_l": {
+      "source_field_positions": [
+        11,
+        12
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "mg/L"
+    },
+    "chloride_mg_l": {
+      "source_field_positions": [
+        11,
+        12
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "mg/L"
+    },
+    "tds_mg_l": {
+      "source_field_positions": [
+        11,
+        12
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "mg/L"
+    },
+    "ph": {
+      "source_field_positions": [
+        11,
+        12
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "unitless"
+    },
+    "iron_mg_l": {
+      "source_field_positions": [
+        13,
+        14
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "mg/L"
+    },
+    "alkalinity_mg_l": {
+      "source_field_positions": [
+        13,
+        14
+      ],
+      "description": "Extracted numeric parameter; raw source text is retained in the raw fields.",
+      "unit": "mg/L"
+    },
+    "raw_field_01": {
+      "source_field_position": 1,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_02": {
+      "source_field_position": 2,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_03": {
+      "source_field_position": 3,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_04": {
+      "source_field_position": 4,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_05": {
+      "source_field_position": 5,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_06": {
+      "source_field_position": 6,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_07": {
+      "source_field_position": 7,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_08": {
+      "source_field_position": 8,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_09": {
+      "source_field_position": 9,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_10": {
+      "source_field_position": 10,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_11": {
+      "source_field_position": 11,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_12": {
+      "source_field_position": 12,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_13": {
+      "source_field_position": 13,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_14": {
+      "source_field_position": 14,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_15": {
+      "source_field_position": 15,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_16": {
+      "source_field_position": 16,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_17": {
+      "source_field_position": 17,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_18": {
+      "source_field_position": 18,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_19": {
+      "source_field_position": 19,
+      "description": "Unmodified source field retained for traceability."
+    },
+    "raw_field_20": {
+      "source_field_position": 20,
+      "description": "Unmodified source field retained for traceability."
+    }
+  },
+  "quarantined_rows": [
+    {
+      "source_file": "Melbhuvanagiri.csv",
+      "source_record_number": 505,
+      "field_count": 4,
+      "raw_fields": [
+        "Tamil Nadu",
+        "Cuddalore",
+        "Melbhuvanagiri",
+        "Ka"
+      ],
+      "reason": "expected 20 fields, found 4"
+    },
+    {
+      "source_file": "Kurinjipadi.csv",
+      "source_record_number": 635,
+      "field_count": 2,
+      "raw_fields": [
+        "Tamil Nadu",
+        ""
+      ],
+      "reason": "expected 20 fields, found 2"
+    }
+  ],
+  "removed_duplicates": [],
+  "validation_issues": [],
+  "summary": {
+    "normalized_records_written": 1138,
+    "quarantined_malformed_records": 2,
+    "removed_exact_duplicates": 0,
+    "records_with_validation_issues": 0
+  }
+}

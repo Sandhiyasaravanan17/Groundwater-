@@ -1,0 +1,56 @@
+{
+  "method": "weighted_arithmetic",
+  "method_reference": "Ramakrishnaiah, C. R., Sadashivaiah, C., & Ranganna, G. (2009). Assessment of Water Quality Index for the Groundwater in Tumkur Taluk, Karnataka State, India. Journal of Chemistry, 6(2), 523-530. https://doi.org/10.1155/2009/757424",
+  "standard_source": "Bureau of Indian Standards. IS 10500:2012, Drinking Water — Specification (Second Revision), Table 2, acceptable limits. https://www.bis.gov.in/",
+  "classification_source": "Ramakrishnaiah et al. (2009), cited above; weighted-arithmetic WQI classes: 0-25 Excellent, >25-50 Good, >50-75 Poor, >75-100 Very Poor, >100 Unsuitable for Drinking.",
+  "included_parameters": [
+    "nitrate_mg_l",
+    "fluoride_mg_l",
+    "chloride_mg_l",
+    "tds_mg_l",
+    "ph",
+    "iron_mg_l"
+  ],
+  "excluded_parameters": {
+    "alkalinity_mg_l": "Excluded because the source does not specify the reporting basis (for example, as CaCO3), and its method/standard comparability cannot be verified."
+  },
+  "interpretation_note": "An aggregate WQI classification is an index result, not a potability certification or a substitute for individual-parameter compliance assessment.",
+  "record_count": 1138,
+  "mean_wqi": 174.70746775418965,
+  "minimum_wqi": 24.335483130134882,
+  "maximum_wqi": 658.3459013639409,
+  "class_distribution": {
+    "Poor": 78,
+    "Very Poor": 111,
+    "Good": 45,
+    "Unsuitable for Drinking": 903,
+    "Excellent": 1
+  },
+  "classification_bands": [
+    {
+      "name": "Excellent",
+      "lower_bound": null,
+      "upper_bound": 25.0
+    },
+    {
+      "name": "Good",
+      "lower_bound": 25.0,
+      "upper_bound": 50.0
+    },
+    {
+      "name": "Poor",
+      "lower_bound": 50.0,
+      "upper_bound": 75.0
+    },
+    {
+      "name": "Very Poor",
+      "lower_bound": 75.0,
+      "upper_bound": 100.0
+    },
+    {
+      "name": "Unsuitable for Drinking",
+      "lower_bound": 100.0,
+      "upper_bound": null
+    }
+  ]
+}
